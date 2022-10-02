@@ -1,6 +1,11 @@
 # Shark-Attack-Analysis
-This query contains queries used to clean and analyze the Shark Attacks dataset from Maven analytics 
 
+ ![jean-beller-M4GYXYqhg1U-unsplash (1)](https://user-images.githubusercontent.com/105794651/193456782-f54b6b4e-9f8d-4ddc-9b45-d544a0fb4099.jpg)
+
+
+Sharks have been attacking humans for centuries and are responsible for many deaths. In fact, sharks kill an average of 50 people per year. Sharks are one of the most feared predators in the ocean, but they don’t often attack humans. In fact, there have only been X unprovoked shark attacks on humans since 2001 and only X deaths were caused by them.
+
+This project analyses data on shark attacks from around the world to see if there are any patterns in where and when shark attacks occur. The data used for this project was collected from Maven Analytics. We hope that our findings will help people to better understand  when and where shark attacks are most likely to occur so that they can reduce their risk of being attacked.  
 
 
 ## Database
