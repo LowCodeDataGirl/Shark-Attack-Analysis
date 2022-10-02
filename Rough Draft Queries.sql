@@ -2,7 +2,19 @@
 
 select * from sakila.attacks ;
 
-SELECT * FROM sakila.attacks  order by Country asc;
+SELECT * FROM sakila.at
+SELECT  *
+FROM sakila.attacks 
+WHERE `Year` < 1500
+ORDER BY `Year` desc ;
+
+
+ SELECT  *
+FROM sakila.attacks 
+WHERE `Case Number` < 1500
+ORDER BY `Case Number` like '%ND%' desc ;
+
+tacks  order by Country asc;
 
 
 select * from sakila.attacks  where Country = '' OR Country IS NULL;
