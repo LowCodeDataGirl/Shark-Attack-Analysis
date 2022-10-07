@@ -60,7 +60,50 @@ OR      `Time` LIKE '%?%';
 
  
 UPDATE sakila.attacks 
-SET    Injury    = REPLACE(Injury, '?', ' '),
+SET    Injury    = REPLACE
+/* What to do next 
+1. 
+2. Find columns with very old dates
+3. Find columns with writen words  
+3. Find a way to write dates in century language e.g 0770 
+4. Find date columns written like this '1952.04.06' 
+5. Update each of the tables from `Case Number_[0]` 
+6. Format the table to Datetime Format 
+
+
+/* Query to remove the suffix "?" in some places in the Activity Column 
+
+UPDATE sakila.attacks 
+SET Activity =  SUBSTRING(Activity, 1, CHAR_LENGTH(Activity) - 1)  
+WHERE `Activity` like '%?%'  ;
+
+*/
+
+/*
+select *
+from sakila.attacks 
+where `Location` like '%?%';
+
+select *
+from sakila.attacks 
+where `Date`  not like '%.%' or '%-%'
+
+select `Date`
+from sakila.attacks 
+where `Date`  not like '%.%' or '%-%'
+
+*/
+
+/*
+select `Case Number` ,`Case Number_[0]`,`Case Number_[1]`,`original order`, `Date`
+from sakila.attacks 
+where `Case Number`  not like '%.%'
+
+
+*//*
+select *
+from sakila.attacks 
+where `Case Number`= '1952.04.06'*/(Injury, '?', ' '),
 	   Country   = REPLACE(Country , '?', ' '),
       `Date`     = REPLACE(`Date` , '?', ' '),
        Location  = REPLACE(Location , '?', ' '),
