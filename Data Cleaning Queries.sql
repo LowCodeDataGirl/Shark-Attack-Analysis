@@ -9,7 +9,7 @@
 
 SELECT  Country,                   REPLACE( Country , '?', ' '),
         Injury,                    REPLACE(Injury, '?', ' '),
-	`Case Number`,             REPLACE(`Case Number` , '?', ' '),
+    	`Case Number`,             REPLACE(`Case Number` , '?', ' '),
         `Date`,                    REPLACE(`Date` , '?', ' '),
         `Year`,                    REPLACE(`Year` , '?', ' '),
         `Type`,                    REPLACE(`Type` , '?', ' '),
@@ -32,10 +32,10 @@ SELECT  Country,                   REPLACE( Country , '?', ' '),
         `original order`,          REPLACE(`original order` , '?', ' ')
         
 FROM    sakila.attacks 
-WHERE      Injury                         LIKE '%?%'
-    OR     Country                      LIKE '%?%'
-    OR     Injury                      LIKE '%?%'
-    OR    `Case Number`               LIKE '%?%'
+WHERE      Injury                    LIKE '%?%'
+    OR     Country                   LIKE '%?%'
+    OR     Injury                    LIKE '%?%'
+    OR    `Case Number`              LIKE '%?%'
     OR    `Date`                     LIKE '%?%'
     OR    `Year`                     LIKE '%?%'
     OR    `Type`                     LIKE '%?%'
@@ -210,7 +210,8 @@ WHERE     Injury                     LIKE '%?%'
     OR    `Case Number_[0]`          LIKE '%?%'
     OR    `original order`           LIKE '%?%';
         
-        
+/*This is the end of the misspellings query. After running these, all the extra characters '?' would be removed from the table */
+
         
 /*2*/ /*There are two similar words "Boat" and "Boating" in the 'Type' column.
 This shows and updates the column */
@@ -230,7 +231,6 @@ SET `Type` = "Boating"
 WHERE `Type` = 'Boat';
 
  
-
  
 /*3*/  /*Some of The Date Column has the suffix "Reported" and wrong date format
 This Query shows and updates the table with the correct Date format (from the "Case Number_[0]")*/
@@ -252,6 +252,8 @@ WHERE `Date` like '%Reported%' ;
 
 
 
+
+
  
 
 
@@ -302,6 +304,68 @@ WHERE `Date` like '%Reported%' ;
  
 
 
+
+
+
+
+
+
+
+        
+        
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
 
 
 
