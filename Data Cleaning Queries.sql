@@ -300,6 +300,56 @@ WHERE
    `Name`                = 'Norman Girvan';
  
  
+/* Havent Tested 
+
+ /*4d*//* This Query puts the data of 'Robert Rice' in the right places */  
+
+UPDATE 
+    sakila.attacks 
+SET
+    Location                 = Activity,
+    Activity                 = Sex,
+    `Name`                   = Age,
+    Sex                      = Injury,
+    Age                      = Fatal (Y/N),
+    Injury                   = `Time`,
+    `Fatal (Y/N)`            = Species,
+    `Time`                   = `Investigator or Source`,
+    Species                  = pdf,
+    `Investigator or Source` = `href formula`,
+    pdf                      = href,
+    `href formula`           = `Case Number_[0]`,
+    href                     = `Case Number_[1]`,
+    `Case Number_[0]`        = Substring(`original order`,1,10),
+    `Case Number_[1]`        = Substring(`original order`,1,10),
+    `original order`         = REPLACE (`original order`, '1984.09.30.b',' ')
+WHERE
+   Age               = 'Robert Rice';
+
+
+
+
+ /*4d*//* This Query puts the data of 'Robert Rice' in the right places */  
+
+UPDATE 
+    sakila.attacks 
+SET
+    `Name`                   = concat(Substring(`Name`,22,12),',','',Sex,',','',Age      ),
+    Injury                   = `Time`,
+    `Fatal (Y/N)`            = Species,
+    `Time`                   = `Investigator or Source`,
+    Species                  = pdf,
+    `Investigator or Source` = `href formula`,
+    pdf                      = href,
+    `href formula`           = `Case Number_[0]`,
+    href                     =`Case Number_[1]`,
+    `Case Number_[0]`        =  Substring(`original order`,1,10),
+    `Case Number_[1]`        =  Substring(`original order`,1,10),
+    `original order`         = REPLACE (`original order`, '2011.01.03',' ')
+    
+    
+    
+
 
  
 
