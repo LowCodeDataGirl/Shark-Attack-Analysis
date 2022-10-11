@@ -155,7 +155,7 @@ WHERE `Location` =  'Botany Bay?';
 
  /*1d.*/ /* Query to remove all the columns that contain
   Some Columns in the dataset contains irrelavant additional words '?'. 
-  This query updates all the columns that contain "?"
+  This query repplaces the extra "?" with space "?"
   NOTE: Run this query last */
  
  
@@ -251,14 +251,55 @@ WHERE `Date` like '%Reported%' ;
 
 
 
+/*4*//*Some of The Data in some rows were wrongly inputted in the wrong columns.
+This query checks and updates the missplaced data Column */
+
+     /*4a*//* Query To Check For rows with misplaced data*/ 
+
+SELECT  *
+FROM sakila.attacks 
+where `Case Number_[1]` like '%sharkattack%';
+#NOTE : You used like '%sharkattack%' because all the rows with misplaced data had sharkattack in their `Case Number_[1]`
 
 
-
+  /*4b*//* This Query puts the data of 'Mustafa Al Hammadi' in the right places */   
+  
+ UPDATE 
+    sakila.attacks 
+SET
+   Injury                   = CONCAT(Injury,"."," ", `Fatal (Y/N)`," ",`Time`, " ", Species),
+   `Fatal (Y/N)`            = `Investigator or Source`,
+   `Investigator or Source` = href,
+   `Time`                   = REPLACE (`Time`,' 300-kg mako shark that was attacked',' '),
+   Species                  = REPLACE (Species,' not the fisherman"',' '),
+   pdf                      = `Case Number_[0]`,
+   `href formula`           =`Case Number_[1]`,
+   href                     = `original order`,
+   `Case Number_[0]`        = SUBSTRING(`Case Number_[0]`,1,10),
+   `Case Number_[1]`        = SUBSTRING(`Case Number_[0]`,1,10),
+   `original order`         = REPLACE (`original order`,'http://sharkattackfile.net/spreadsheets/pdf_directory/2011.05.07.R-UAE.pdf',' ')
+WHERE `Name`                = 'Mustafa Al Hammadi';
  
 
+    /*4c*//* This Query puts the data of 'Norman Girvan' in the right places */  
 
-
-
+ UPDATE 
+    sakila.attacks 
+SET
+   `Investigator or Source`  = `href formula`,
+   pdf                      = href,
+  `href formula`            = `Case Number_[0]`,
+   href                     = `Case Number_[1]`,
+  `Case Number_[0]`         = `original order`,
+  `Case Number_[1]`         = `original order`,
+  `original order`          =  REPLACE (`original order`,'1937.10.27.a',' '),
+  `Fatal (Y/N)`             = REPLACE (`Fatal (Y/N)`,' 850-kg [1874-lb] female','Y'),
+  Injury                    = concat(`Investigator or Source`,'',pdf)
+  
+WHERE
+   `Name`                = 'Norman Girvan';
+ 
+ 
 
  
 
