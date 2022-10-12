@@ -62,14 +62,15 @@ WHERE      Injury                    LIKE '%?%'
  
    /*1b.*/ /* Query To Update the Name Column with right data 
    NOTE: Run this query before the general update */
-
+/*
 UPDATE sakila.attacks 
 SET `Name`  =   'Mrs. Avery' 
-WHERE  `Name` =  'adult female (Mrs. Avery)'  ;
+WHERE  `Name` =  'adult female (Mrs. Avery?)'  ;
 
 UPDATE sakila.attacks 
 SET `Name`  =   'Ibrahim Karagöz'
 WHERE  `Name` =  'brahim Karagöz'  ;
+*/
 
 
   /*1c.*/ /*Query To Change the Wrongly Spelled Location to their correct spellings.
@@ -104,11 +105,11 @@ UPDATE sakila.attacks
 SET `Location` =  'Kanazawa'
 WHERE `Location` =  'Kanazawa?';
 
-
+/*
 UPDATE sakila.attacks 
-SET `Location`   = 'inciralti Beach, izmir'
-WHERE `Location` = '?nciralti Beach, ?zmir';
-
+SET    `Location`   = 'inciralti Beach, izmir'
+WHERE  `Location`   = '?nciralti Beach, ?zmir';
+*/
 
 UPDATE sakila.attacks 
 SET `Location` =  'Jaque'
@@ -220,7 +221,7 @@ This shows and updates the column */
 
 SELECT  *
 FROM sakila.attacks 
-WHERE `Type` IN ('Boat' ,'Boating');
+WHERE `Type` IN ('Boat' ,'Boating' );
  
 
 /*2b*//*Query to Change Boat to Boating 
@@ -241,7 +242,7 @@ This Query shows and updates the table with the correct Date format (from the "C
 SELECT * 
 FROM sakila.attacks 
 WHERE `Date` like '%Reported%' 
-ORDER BY `Date` desc ;
+ORDER BY `Date` DESC ;
 
   /*3b*//* Query To Update The Date Column */
 
@@ -311,7 +312,7 @@ SET
     Activity                 = Sex,
     `Name`                   = Age,
     Sex                      = Injury,
-    Age                      = Fatal (Y/N),
+    Age                      = `Fatal (Y/N)`,
     Injury                   = `Time`,
     `Fatal (Y/N)`            = Species,
     `Time`                   = `Investigator or Source`,
@@ -329,12 +330,12 @@ WHERE
 
 
 
- /*4d*//* This Query puts the data of 'Robert Rice' in the right places */  
+ /*4d*//* This Query puts the data of ' John and Mark Kik "' , SD and DSF in the right places */  
 
 UPDATE 
     sakila.attacks 
 SET
-    `Name`                   = concat(Substring(`Name`,22,12),',','',Sex,',','',Age      ),
+    `Name`                   = concat(Substring(`Name`,22,12),',','',Sex,',','',SUBSTRING(Age FROM 1 FOR CHAR_LENGTH(Age) - 2)),
     Injury                   = `Time`,
     `Fatal (Y/N)`            = Species,
     `Time`                   = `Investigator or Source`,
@@ -347,24 +348,53 @@ SET
     `Case Number_[1]`        =  Substring(`original order`,1,10),
     `original order`         = REPLACE (`original order`, '2011.01.03',' ')
     
+WHERE 
+   Age =' John and Mark Kik "';
     
+
+
+  
+ 
+/*4e*//* This Query puts the data of 'Anand Govindsamy' , SD and DSF in the right places */  
+
+UPDATE 
+    sakila.attacks 
+SET
+
+    Species                  = concat(`Investigator or Source`,'',pdf,'',Species),
+    `Investigator or Source` = `href formula`,
+    pdf                      = href,
+    `href formula`           = `Case Number_[0]`,
+    href                     =`Case Number_[1]`,
+    `Case Number_[0]`        =  Substring(`original order`,1,10),
+    `Case Number_[1]`        =  Substring(`original order`,1,10),
+    `original order`         = REPLACE (`original order`, '1970.06.15',' ')
     
+WHERE 
+  `Name` = 'Anand Govindsamy';
+    
+ 
+
+    /*4f*//* This Query puts the data of ' Alf Dean & other occupant' in the right places */  
+
+UPDATE 
+    sakila.attacks 
+SET
+    Species                  = concat(`Name`,'',Species,'',pdf),
+    `Investigator or Source` = `href formula`,
+    pdf                      = href,
+    `href formula`           = `Case Number_[0]`,
+    href                     =`Case Number_[1]`,
+    `Case Number_[0]`        = Substring(`original order`,1,10),
+    `Case Number_[1]`        = Substring(`original order`,1,10),
+    `original order`         = REPLACE(`original order`, '1952.04.06',' '),
+    `Name`                   = Substring(Injury,23,26)
+   
+WHERE 
+    `Case Number` = '1952.04.06' ;
 
 
  
-
-
-
-
-
- 
- 
-
- 
-
- 
-
-
  
 
  
