@@ -71,7 +71,14 @@ A step-by-step guide is included in this [documentation](lowcodedatagirl.medium.
 
 
 ## FAQ
-- 
+### Can I follow you on your social media platforms ? 
+
+Yes you can !
+ 
+ You'll find me 
+- Posting memes or talking about data on [Twitter](https://twitter.com/LowCodeDataGirl/status/1539491369491759107?s=20&t=_AIGHnY6mDlG9uaiR8aa0g)
+- Writing articles about complex data concepts and making them digestible on [Medium](lowcodedatagirl.medium.com)   
+- Posting data vizualizations inspiration and data infographics on [Instagram](https://www.instagram.com/lowcodedatagirl/)
 
 ## License
 
